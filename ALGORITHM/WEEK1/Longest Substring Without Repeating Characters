@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        vector<int> ki_tu(128,-1);
+        int left = 0;
+        int ans = 0;
+        for(int right = 0; right < s.size(); right++){
+            if(ki_tu[s[right]] >= left){
+                left = ki_tu[s[right]] + 1;
+            }
+            ki_tu[s[right]] = right;
+            ans = max(ans, right - left + 1);
+        }
+        return ans;
+    }
+};
