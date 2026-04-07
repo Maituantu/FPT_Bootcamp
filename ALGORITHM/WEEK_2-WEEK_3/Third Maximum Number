@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+       long long f = LONG_MIN;
+       long long s = LONG_MIN;
+       long long t = LONG_MIN;
+       for(auto x : nums){
+        if( x == f || x == s || x == t) continue;
+        if( x > f){
+            t = s;
+            s = f;
+            f = x;
+        }
+        else if(x > s){
+            t = s;
+            s = x;
+        }
+        else if( x > t ){
+            t =x;
+        }
+       }
+       return (t == LONG_MIN) ? f : t;
+    }
+};
