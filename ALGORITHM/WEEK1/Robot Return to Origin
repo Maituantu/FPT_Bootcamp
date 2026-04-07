@@ -1,0 +1,14 @@
+class Solution {
+public:
+    bool judgeCircle(string moves) {
+        int i = 0;
+        int j = 0;
+        for(char x : moves){
+            if(x == 'R') i++;
+            else if(x == 'L') i--;
+            else if(x == 'U') j++;
+            else if(x == 'D') j--;
+        }
+        return i == 0 && j ==0;
+    }
+};
